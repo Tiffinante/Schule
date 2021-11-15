@@ -1,0 +1,23 @@
+import time as t
+
+print("Hi")
+name = str(input("Dein Name:"))
+print("Was geht ab")
+t.sleep(1)
+print("Das du dödel mich nich margst")
+t.sleep(1)
+print("kauf ich dir nich ab yo")
+t.sleep(1)
+print("denn du bist ein's lifer spast")
+print(' ')
+t.sleep(0.5)
+print("was haben sie zu ihrer verteidigung zu sagen" + name + "?")
+a = str(input("Verteidigung:"))
+t.sleep(1)
+print('Schwache verteidigung... Wer sagt schon "' + a + '" als verteidigung')
+t.sleep(3)
+print("Loser")
+
+print(" ")
+input("press enter to quit")
+quit()
