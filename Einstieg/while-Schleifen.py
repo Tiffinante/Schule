@@ -33,6 +33,7 @@ while y != 4:
     print("")
     y += 1
 
+
 print("\n\nAufgabe 6")
 number = 7
 
