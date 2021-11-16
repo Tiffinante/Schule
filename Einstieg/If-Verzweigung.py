@@ -1,6 +1,6 @@
 print("Aufgabe 1")
 alter = int(input("dein alter:"))
-if alter < 19 and alter > 13:
+if 19 > alter > 13:
     print("Du bist Jugentlich")
 elif alter >= 18:
     print("HGW... Du bist Volljehrig")

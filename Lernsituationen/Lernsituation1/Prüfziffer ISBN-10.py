@@ -1,26 +1,28 @@
 import time
 from random import randint
 
-def random_with_N_digits(n):
-    range_start = 10**(n-1)
-    range_end = (10**n)-1
+
+def random_number(n):
+    range_start = 10 ** (n - 1)
+    range_end = (10 ** n) - 1
     return randint(range_start, range_end)
+
 
 print('''
                 ##################################
                 ##      ISBN-Nummernprüfer      ##
                 ##         by Mika              ##
                 ##################################
+
+
+Gib eine 9 oder 10 Stellige Isbn nummer ein
+Die 10 stellige wird geprüft die 9 stellige ausgerechnet
 ''')
 
-print("Gib eine 9 oder 10 Stellige Isbn nummer ein")
-print("Die 10 stellige wird geprüft die 9 stellige ausgerechnet")
-print(" ")
-
 answer = ""
-while not(answer == "stop"):
+while not (answer == "stop"):
     isbn = 0  # 3826604237
-    while not(len(str(isbn))) == 9 and not(len(str(isbn)) == 10) and not(isbn == "stop") and not(isbn == "help"):
+    while not (len(str(isbn))) == 9 and not (len(str(isbn)) == 10) and not (isbn == "stop") and not (isbn == "help"):
         while True:
             print("Bitte eine 9 oder 10 stellige nummer!")
             isbn = input("Die isbn nummer:")
@@ -88,11 +90,11 @@ while not(answer == "stop"):
 
     # Fragen nach Random nummer
     answer = "idk"
-    while not(answer == "y") and not(answer == "n") and not(answer == "stop") and not(answer == "help"):
+    while not (answer == "y") and not (answer == "n") and not (answer == "stop") and not (answer == "help"):
         answer = str(input("y or n:"))
 
     if answer == "y":
-        isbn = random_with_N_digits(9)
+        isbn = random_number(9)
 
         x = 1
         y = 100000000

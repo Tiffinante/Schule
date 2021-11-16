@@ -13,23 +13,21 @@ print(m1, "gegen", m2)
 
 # Verdoppler
 
-x = True
-while x:
+while True:
     number_x_2 = input("Number*2:")
     if number_x_2.isdecimal():
         print(int(number_x_2) * 2)
-        x = False
+        break
     else:
         print("Bitte nur Zahlen!!!")
 
 # Manschaft 2
 
-x = True
-while x:
+while True:
     punkte_m1 = input("Die Punkte für M1")
     punkte_m2 = input("Die Punkte für M2")
     if punkte_m1.isdecimal() and punkte_m2.isdecimal():
-        x = False
+        break
 
 print(m1, punkte_m1, ":", punkte_m2, m2)
 p_m1 = int(punkte_m1)
@@ -43,8 +41,7 @@ else:
 
 # Rechtecksberechnung
 
-x = True
-while x:
+while True:
     seite_a = input("Die Seite für a")
     seite_b = input("Die Seite für b")
     if seite_b.isdigit() and seite_a.isdigit():
@@ -52,7 +49,7 @@ while x:
         if not(einheit.isdecimal()):
             a = int(seite_a)
             b = int(seite_b)
-            x = False
+            break
     elif seite_a.find(",") == 1 or seite_b.find(",") == 1:
         einheit = input("ihre einheit:")
         if seite_a.find(",") == 1:
@@ -66,10 +63,10 @@ while x:
 
         a = float(seite_a)
         b = float(seite_b)
-        x = False
+        break
     else:
         print("Falsche eingabe!3")
 
 print("Der Umfang beträgt ", a * 2 + b * 2, einheit, sep="")
 print("Die Fläche beträgt ", b * a, einheit, "²", sep="")
-print("Die Diagonale beträgt ", math.sqrt((a**2) * (b**2)), einheit, sep="")
+print("Die Diagonale beträgt ", math.sqrt((a ** 2) * (b ** 2)), einheit, sep="")

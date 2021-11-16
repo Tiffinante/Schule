@@ -1,9 +1,10 @@
-
 def dubble(n):
     n *= 2
 
+
 def dreieck_zur_hypotenose(a, b):
     (a * b) / 2
+
 
 def wellcome():
     print('''
@@ -15,18 +16,20 @@ def wellcome():
             #######################################################
     ''')
 
+
 # WICHTIG!
 def binaer(dezimalzahl):
     list1 = []
     while dezimalzahl > 0:
-        zwischen_Summe = dezimalzahl % 2
-        list1.insert(0, zwischen_Summe)
+        n = dezimalzahl % 2
+        list1.insert(0, n)
         dezimalzahl //= 2
     s = ""
     for nr in list1:
         s += str(nr)
     i = int(s)
     return i
+
 
 # WICHTIG
 def dezimal(binaerzahl):
@@ -48,5 +51,3 @@ def dezimal(binaerzahl):
             binaerzahl = binaerzahl[:-1]
 
     return ergebnis
-
-dezimal()
