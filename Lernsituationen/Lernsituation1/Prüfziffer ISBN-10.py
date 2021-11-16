@@ -21,13 +21,12 @@ answer = ""
 while not(answer == "stop"):
     isbn = 0  # 3826604237
     while not(len(str(isbn))) == 9 and not(len(str(isbn)) == 10) and not(isbn == "stop") and not(isbn == "help"):
-        x = True
-        while x:
+        while True:
             print("Bitte eine 9 oder 10 stellige nummer!")
             isbn = input("Die isbn nummer:")
             if isbn.isdecimal():
                 isbn = int(isbn)
-                x = False
+                break
             else:
                 if isbn == "stop":
                     print(" ")
