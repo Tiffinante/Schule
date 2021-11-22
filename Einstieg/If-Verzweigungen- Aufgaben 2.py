@@ -1,6 +1,6 @@
 import random
 import time
-
+'''
 print("Aufgabe 2.1")
 dogs_age = int(input("Alter in hundejahren:"))
 if dogs_age == 1:
@@ -53,6 +53,49 @@ elif punkte <= 8:
     print(punkte, "punkte, du hast aber Glück.")
 elif punkte == 9:
     print(punkte, "punkte, WOW! Kommst du aus der Zukunft?")
-
+'''
 print("Aufgabe 2.3")
-time.sleep(0.1)
+hh = int(input("hh:"))
+mm = int(input("mm:"))
+ss = int(input("ss:"))
+add_ss = int(input("add ss:"))
+x = ss
+y = hh
+
+if add_ss > 60:
+    print("Fehler!")
+
+if hh == 24 and mm == 0 and ss == 00:
+    print("Der Maximale wert wurde erreicht!")
+    print('0:0:1')
+
+elif mm > 59 or ss > 59 or hh > 23:
+    print("Fehler!")
+else:
+    if ss == 59:
+        ss = 0
+
+        if mm == 59:
+            mm = 0
+
+            if hh == 24:
+                hh = 0
+                mm = 0
+                ss = 1
+            else:
+                hh += 1
+
+        else:
+            if not(hh == 24):
+                mm += 1
+
+    else:
+        ss += add_ss
+        if ss >= 60:
+            ss = add_ss - x
+            mm += 1
+            if mm >= 60:
+                mm = 0
+                hh += 1
+
+    print(f'{hh}:{mm}:{ss}')
