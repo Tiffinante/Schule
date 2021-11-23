@@ -26,6 +26,7 @@ else:
 print("Aufgabe 3")
 a = random.randint(1, 10)
 b = random.randint(1, 10)
+c = "Error"
 operator = random.randint(1, 4)
 if operator == 1:
     c = a + b
