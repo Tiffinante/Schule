@@ -1,6 +1,5 @@
 import random
-import time
-'''
+
 print("Aufgabe 2.1")
 dogs_age = int(input("Alter in hundejahren:"))
 if dogs_age == 1:
@@ -53,49 +52,39 @@ elif punkte <= 8:
     print(punkte, "punkte, du hast aber Glück.")
 elif punkte == 9:
     print(punkte, "punkte, WOW! Kommst du aus der Zukunft?")
-'''
+
 print("Aufgabe 2.3")
-hh = int(input("hh:"))
-mm = int(input("mm:"))
-ss = int(input("ss:"))
-add_ss = int(input("add ss:"))
-x = ss
-y = hh
+h = int(input("h:"))
+m = int(input("m:"))
+s = int(input("s:"))
+print("Maxilam zu addirende sekunden sind 60")
+add_s = int(input("add s:"))
 
-if add_ss > 60:
-    print("Fehler!")
 
-if hh == 24 and mm == 0 and ss == 00:
-    print("Der Maximale wert wurde erreicht!")
-    print('0:0:1')
-
-elif mm > 59 or ss > 59 or hh > 23:
-    print("Fehler!")
+if s > 59 or m > 59 or h > 23:
+    print(f'{h}:{m}:{s} ist ungültig!')
+    print("Die maximale uhrzeit ist 23:59:59 !")
+    if add_s >= 60:
+        print("Die max add s sind 60!")
 else:
-    if ss == 59:
-        ss = 0
-
-        if mm == 59:
-            mm = 0
-
-            if hh == 24:
-                hh = 0
-                mm = 0
-                ss = 1
-            else:
-                hh += 1
-
-        else:
-            if not(hh == 24):
-                mm += 1
-
+    if add_s + s > 60:
+        s = (add_s + s) - 60
+    elif add_s + s == 60:
+        s = 0
+        m += 1
     else:
-        ss += add_ss
-        if ss >= 60:
-            ss = add_ss - x
-            mm += 1
-            if mm >= 60:
-                mm = 0
-                hh += 1
-
-    print(f'{hh}:{mm}:{ss}')
+        s += add_s
+    if m >= 60:
+        h += 1
+        m = 0
+    if h >= 24:
+        h = 0
+    # Formatirung
+    if len(str(h)) == 1:
+        h = "0" + str(h)
+        print(h)
+    if len(str(m)) == 1:
+        m = "0" + str(m)
+    if len(str(s)) == 1:
+        s = "0" + str(s)
+    print(f'{h}:{m}:{s}')
