@@ -4,7 +4,7 @@ runden = 0
 print("Zahlenraten [51 - 10000] ")
 zahl = r.randint(51, 10000)
 str_zahl = str(zahl)
-# print(zahl)
+print(zahl)
 
 while True:
     answer = int(input(""))
@@ -46,13 +46,27 @@ jahr = int(input("von jahr:"))
 
 
 while True:
-    zinsen = (kredites * zinssatz) // 100
+    zinsen = (kredites * zinssatz) / 100
     tillgung = rueckzahlungsbetrag - zinsen
     rest = kredites - tillgung
     if "-" in str(rest):
         break
-    txt = "{:^4}-> \t|\t Zinsen: {:^4}€ \t|\t Tillgung: {:^4}€ \t|\t Rest: {:^4}€".format(jahr, zinsen, tillgung, rest)
+    txt = f"{jahr:>8.2f} -> \t|\t Zinsen: {zinsen:>8.2f}€ \t|\t Tillgung: {tillgung:>8.2f}€ \t|\t Rest: {rest:>8.2f}€"
     print(txt)
     jahr += 1
     kredites = rest
-print("Restforderung: \t\t {:^4}€".format(kredites))
+print(f"Restforderung: \t\t\t\t {kredites:>8.2f}€")
+
+# Andere Möglichkeit
+'''while True:
+    zinsen = (kredites * zinssatz) / 100
+    tillgung = rueckzahlungsbetrag - zinsen
+    rest = kredites - tillgung
+    if "-" in str(rest):
+        break
+    txt = "{:>8.2f}-> \t|\t Zinsen: {:>8.2f}€ \t|\t Tillgung: {:>8.2f}€ \t|\t Rest: {:>8.2f}€".format(int(jahr), int(zinsen), int(tillgung), int(rest))
+    print(txt)
+    jahr += 1
+    kredites = rest
+print("Restforderung: \t\t\t {:>8.2f}€".format(kredites))'''
+
