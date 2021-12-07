@@ -2,6 +2,7 @@ import time
 from random import randint
 
 
+# Quelle https://qastack.com.de/programming/2673385/how-to-generate-random-number-with-the-specific-length-in-python
 def random_number(n):
     range_start = 10 ** (n - 1)
     range_end = (10 ** n) - 1
