@@ -10,46 +10,51 @@ dauerhaft wiederholen. Um dies zu stoppen,
 schreiben die in einen beliebigen Input "stop",
 dann wird das Programm automatisch beendet.
 
+Getestet mit https://chroniknet.de/extra/welcher-wochentag-war-der/?datum=7.12.1935
+
 -© Mika kattau
 """
 
 
 def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
-    # "Search" for the end of the month and set the remainder to zero.
     loop = True
     while loop:
+        # "Search" for the end of the month and set the remainder to "".
         if mon == month_len:
-            tue, wed, thr, fri, sat, sun = 0, 0, 0, 0, 0, 0
+            tue, wed, thr, fri, sat, sun = "", "", "", "", "", ""
             loop = False
         elif tue == month_len:
-            wed, thr, fri, sat, sun = 0, 0, 0, 0, 0
+            wed, thr, fri, sat, sun = "", "", "", "", ""
             loop = False
         elif wed == month_len:
-            thr, fri, sat, sun = 0, 0, 0, 0
+            thr, fri, sat, sun = "", "", "", ""
             loop = False
         elif thr == month_len:
-            fri, sat, sun = 0, 0, 0
+            fri, sat, sun = "", "", ""
             loop = False
         elif fri == month_len:
-            sat, sun = 0, 0
+            sat, sun = "", ""
             loop = False
         elif sat == month_len:
-            sun = 0
+            sun = ""
             loop = False
         elif sun == month_len:
             loop = False
         # Insert column of calendar (German = Spalte des Kalenders einsetzen)
-        zellen = "| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |.{:.>2}.|.{:.>2}.|" \
-            .format(mon, tue, wed, thr, fri, sat, sun)
-        print(zellen)
+        str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun =\
+            str(mon), str(tue), str(wed), str(thr), str(fri), str(sat), str(sun)
+        lines = "| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |.{:.>2}.|.{:.>2}.|" \
+            .format(str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun)
+        print(lines)
         # calculate the data in the next line
-        mon = sun + 1
-        tue = mon + 1
-        wed = tue + 1
-        thr = wed + 1
-        fri = thr + 1
-        sat = fri + 1
-        sun = sat + 1
+        if loop:
+            mon = sun + 1
+            tue = mon + 1
+            wed = tue + 1
+            thr = wed + 1
+            fri = thr + 1
+            sat = fri + 1
+            sun = sat + 1
 
 
 months = ("Fehler", 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober',
@@ -57,10 +62,6 @@ months = ("Fehler", 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli'
 weekday = ("Sonntag", "Montag", "Dinstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag")
 
 Mon, Tue, Wed, Thr, Fri, Sat, Sun = "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"
-
-month_codes = ("Fehler", 6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4)
-# Leap Year Codes. January and February only (German = Schaltjahr-Codes. Nur Januar und Februar)
-month_codes_leap_year = ("Fehler", 5, 1)
 
 print('''
 Hier kannst du dir einen Monat deiner Wahl anschauen,
@@ -72,60 +73,44 @@ while True:
 Um das Programm zu beenden, schreibe "stop".
     ''')
     while True:
-        start_year = input("Welches Jahr möchtest du sehen? :")
-        if start_year == "stop":
+        year = input("Welches Jahr möchtest du sehen? :")
+        if year == "stop":
             print(" ")
             quit("See you soon ;)")
-        start_month = input("Welchen Monat möchtest du sehen? 1 bis 12 :")
-        if start_year.isdigit() and start_month.isdigit():
-            if start_year.isdecimal() and start_month.isdecimal():
-                month = int(start_month)
-                year = int(start_year)
+        month = input("Welchen Monat möchtest du sehen? 1 bis 12 :")
+        if year.isdigit() and month.isdigit():
+            if year.isdecimal() and month.isdecimal():
+                month = int(month)
+                year = int(year)
                 if 13 > month > 0:
                     break
         else:
-            if start_month == "stop":
+            if month == "stop":
                 print(" ")
                 quit("bye")
 
-    '''print(months[month])'''
+    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+        leap_year = True
+    else:
+        leap_year = False
 
     # Invoice for the first day of the month
-    # Invoice source: https://www.youtube.com/watch?v=-EiX7a2SBeA and https://de.wikipedia.org/wiki/Wochentagsberechnung
-    year_code = ((year % 100 / 4) + year % 100) % 7
-
-    # Determination and adaptation for centuries (German = Bestimmung und anpassung für die jahunderte)
-    if 1699 < year < 1800:
-        year_code += 5
-    elif 1799 < year < 1900:
-        year_code += 3
-    elif 1899 < year < 2000:
-        year_code += 1
-    elif 1999 < year < 2100:
-        year_code += 0
-        # to recognize the pattern (German = um das Muster zu erkennen)
-    elif 2099 < year < 2200:
-        year_code += 5
-
-    # Query about a leap year
-    if (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) and month < 3:
-        # Calculation of the day with leap year
-        day = (1 + month_codes_leap_year[month] + year_code) % 7
+    # Invoice source: https://de.wikipedia.org/wiki/Wochentagsberechnung
+    if month < 3:
+        temp_year = year - 1
     else:
-        # Calculation of the day without leap year
-        day = (1 + month_codes[month] + year_code) % 7
-    # Round off the number and take the day from the Tuple
-    day = int(day)
-    print(" ")
+        temp_year = year
+    day = ((1 + int(2.6 * ((month + 9) % 12 + 1) - 0.2) + temp_year % 100 + int(temp_year % 100 / 4) +
+            int(temp_year / 400) - 2 * int(temp_year / 100) - 1) % 7 + 7) % 7 + 1
 
-    '''
-    # Arithmetic verification (German = Rechenüberprüfung)
-    print(day)
-    print(weekdays[tag])
-    '''
+    print("")
 
-    # calendar
-    print(f"{months[month]} - {year}")
+    # calendar Top
+    top = months[month] + " - " + str(year)
+    if leap_year:
+        print("{:<14}{:>22}".format(top, "Ein Schaltjahr"))
+    else:
+        print("{:<14}".format(top))
     print("| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |".format("Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"))
 
     # Insert of the first day and days after
@@ -133,27 +118,27 @@ Um das Programm zu beenden, schreibe "stop".
         Tue, Wed, Thr, Fri, Sat, Sun = 2, 3, 4, 5, 6, 7
         Mon = 1
     elif day == 2:
-        Mon, Wed, Thr, Fri, Sat, Sun = 0, 2, 3, 4, 5, 6
+        Mon, Wed, Thr, Fri, Sat, Sun = "", 2, 3, 4, 5, 6
         Tue = 1
     elif day == 3:
-        Mon, Tue, Thr, Fri, Sat, Sun = 0, 0, 2, 3, 4, 5
+        Mon, Tue, Thr, Fri, Sat, Sun = "", "", 2, 3, 4, 5
         Wed = 1
     elif day == 4:
-        Mon, Tue, Wed, Fri, Sat, Sun = 0, 0, 0, 2, 3, 4
+        Mon, Tue, Wed, Fri, Sat, Sun = "", "", "", 2, 3, 4
         Thr = 1
     elif day == 5:
-        Mon, Tue, Wed, Thr, Sat, Sun = 0, 0, 0, 0, 2, 3
+        Mon, Tue, Wed, Thr, Sat, Sun = "", "", "", "", 2, 3
         Fri = 1
     elif day == 6:
-        Mon, Tue, Wed, Thr, Fri, Sun = 0, 0, 0, 0, 0, 2
+        Mon, Tue, Wed, Thr, Fri, Sun = "", "", "", "", "", 2
         Sat = 1
     elif day == 0 or 7:
-        Mon, Tue, Wed, Thr, Fri, Sat = 0, 0, 0, 0, 0, 0
+        Mon, Tue, Wed, Thr, Fri, Sat = "", "", "", "", "", ""
         Sun = 1
 
     # check for 30, 31 days or February
     if month == 2:
-        if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+        if leap_year:
             calendar_build(Mon, Tue, Wed, Thr, Fri, Sat, Sun, 29)
         else:
             calendar_build(Mon, Tue, Wed, Thr, Fri, Sat, Sun, 28)
