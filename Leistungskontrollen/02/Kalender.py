@@ -68,17 +68,10 @@ weekday = ("Sonntag", "Montag", "Dinstag", "Mittwoch", "Donnerstag", "Freitag", 
 months_digits = {'januar': "1", 'februar': "2", 'märz': "3", 'april': "4", 'mai': "5", 'juni': "6", 'juli': "7",
                  'august': "8", 'september': "9", 'oktober': "10", 'november': "11", 'dezember': "12"}
 
-Mon, Tue, Wed, Thr, Fri, Sat, Sun = "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"
-
-print('''
-Hier kannst du dir einen Monat deiner Wahl anschauen,
-gib dazu erst das Jahr und dann den Monat an.
-''')
+print('\nHier kannst du dir einen Monat deiner Wahl anschauen,\ngib dazu erst das Jahr und dann den Monat an.')
 
 while True:
-    print('''
-Um das Programm zu beenden, schreibe "stop".
-    ''')
+    print('\nUm das Programm zu beenden, schreibe "stop".\n')
     while True:
         print_month = 12
         year = input("Welches Jahr möchten sie sehen? :")
@@ -112,20 +105,18 @@ Um das Programm zu beenden, schreibe "stop".
         # Invoice for the first day of the month
         # Invoice source: https://de.wikipedia.org/wiki/Wochentagsberechnung
         if month < 3:
-            temp_year = year - 1
-        else:
-            temp_year = year
-        day = ((1 + int(2.6 * ((month + 9) % 12 + 1) - 0.2) + temp_year % 100 + int(temp_year % 100 / 4) +
-                int(temp_year / 400) - 2 * int(temp_year / 100) - 1) % 7 + 7) % 7 + 1
-
-        print("")
+            year -= 1
+        day = ((1 + int(2.6 * ((month + 9) % 12 + 1) - 0.2) + year % 100 + int(year % 100 / 4) +
+                int(year / 400) - 2 * int(year / 100) - 1) % 7 + 7) % 7 + 1
+        if month < 3:
+            year += 1
 
         # build of the calendar heading
         top = months[month] + " - " + str(year)
         if leap_year:
-            print("{:<14}{:>22}".format(top, "Ein Schaltjahr"))
+            print("\n{:<14}{:>22}".format(top, "Ein Schaltjahr"))
         else:
-            print("{:<14}".format(top))
+            print("\n{:<14}".format(top))
         print("| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |".format("Mo", "Di", "Mi", "Do", "Fr", "Sa",
                                                                                  "So"))
 
@@ -148,7 +139,8 @@ Um das Programm zu beenden, schreibe "stop".
         elif day == 6:
             Mon, Tue, Wed, Thr, Fri, Sun = "", "", "", "", "", 2
             Sat = 1
-        elif day == 0 or 7:
+        # 0 or 7:
+        else:
             Mon, Tue, Wed, Thr, Fri, Sat = "", "", "", "", "", ""
             Sun = 1
 
