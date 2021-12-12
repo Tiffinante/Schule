@@ -63,7 +63,6 @@ def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
 
 months = ("Fehler", 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober',
           'November', 'Dezember')
-weekday = ("Sonntag", "Montag", "Dinstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag")
 
 months_digits = {'januar': "1", 'februar': "2", 'märz': "3", 'april': "4", 'mai': "5", 'juni': "6", 'juli': "7",
                  'august': "8", 'september': "9", 'oktober': "10", 'november': "11", 'dezember': "12"}
