@@ -43,9 +43,8 @@ def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
         # Insert column of calendar (German = Spalte des Kalenders einsetzen)
         str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun = \
             str(mon), str(tue), str(wed), str(thr), str(fri), str(sat), str(sun)
-        lines = "| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |.{:.>2}.|.{:.>2}.|" \
-            .format(str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun)
-        print(lines)
+        print("| {:>2} | {:>2} | {:>2} | {:>2} | {:>2} |.{:.>2}.|.{:.>2}.|"
+              .format(str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun))
         # calculate the data in the next line
         if loop:
             mon = sun + 1

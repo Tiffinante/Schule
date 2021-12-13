@@ -1,20 +1,6 @@
 """
 Leistungskontrolle 02 Kalender.py
-Mika Kattau                 ITA21
-
-Sie können das Jahr und den Monat hintereinander
-in die Konsole eingeben, ihnen wird dann ein
-Formatierter Kalender des angegebenen Monats im
-Angegebenem Jahr ausgegeben. Dies können sie
-dauerhaft wiederholen. Um dies zu stoppen,
-schreiben sie in einen beliebigen Input "stop",
-dann wird das Programm automatisch beendet.
-
-Für besonders vor rausplanende Menschen kann man
-auch anstatt einem Monat "alle" schreiben,
-dann wird einem Januar bis Dezember ausgegeben.
-
-Getestet mit https://chroniknet.de/extra/welcher-wochentag-war-der/?datum=7.12.1935
+ITA21
 
 -© Mika kattau
 """
@@ -47,9 +33,8 @@ def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
         # Insert column of calendar (German = Spalte des Kalenders einsetzen)
         str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun = \
             str(mon), str(tue), str(wed), str(thr), str(fri), str(sat), str(sun)
-        lines = " {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}" \
-            .format(str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun)
-        print(lines)
+        print(" {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2} "
+              .format(str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun))
         # calculate the data in the next line
         if loop:
             mon = sun + 1
@@ -64,12 +49,11 @@ def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
 months = ("Fehler", 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober',
           'November', 'Dezember')
 
-print('\nHier kannst du dir einen Monat deiner Wahl anschauen,\ngib dazu erst das Jahr und dann den Monat an.')
-print('\nUm das Programm zu beenden, schreibe "stop".\n')
+print('\nHier können sie einen Monat ihrer Wahl anschauen,\ngeben sie dazu zuerst das Jahr und dann den Monat an.\n')
 while True:
     print_month = 12
     year = input("Welches Jahr möchten sie sehen? :")
-    month = input("Welchen Monat möchten sie sehen? Es gehen auch alle:")
+    month = input("Welchen Monat möchten sie sehen? :")
     if year.isdigit() and month.isdigit():
         if year.isdecimal() and month.isdecimal():
             month = int(month)
@@ -86,10 +70,6 @@ day = ((1 + int(2.6 * ((month + 9) % 12 + 1) - 0.2) + year % 100 + int(year % 10
 if month < 3:
     year += 1
 
-# build of the calendar heading
-print("\n{:<14}".format(months[month] + " - " + str(year)))
-print(" {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2} ".format("Mo", "Di", "Mi", "Do", "Fr", "Sa",
-                                                                 "So"))
 # Insert of the first day and days after
 if day == 1:
     Tue, Wed, Thr, Fri, Sat, Sun = 2, 3, 4, 5, 6, 7
@@ -114,6 +94,10 @@ else:
     Mon, Tue, Wed, Thr, Fri, Sat = "", "", "", "", "", ""
     Sun = 1
 
+# build of the calendar heading
+print("\n{:<14}".format(months[month] + " - " + str(year)))
+print(" {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2} ".format("Mo", "Di", "Mi", "Do", "Fr", "Sa",
+                                                                 "So"))
 # check for 30, 31 days or February
 if month == 2:
     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
