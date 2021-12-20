@@ -31,15 +31,25 @@ def game_wissen(points):
             if check_answer == answer:
                 points += 1
         elif op == ">":
-            pass
+            check_answer = number > number2
+            if check_answer == answer:
+                points += 1
         elif op == "==":
-            pass
+            check_answer = number == number2
+            if check_answer == answer:
+                points += 1
         elif op == "<=":
-            pass
+            check_answer = number <= number2
+            if check_answer == answer:
+                points += 1
         elif op == ">=":
-            pass
+            check_answer = number >= number2
+            if check_answer == answer:
+                points += 1
         elif op == "!=":
-            pass
+            check_answer = number != number2
+            if check_answer == answer:
+                points += 1
         counter += 1
 
     print("\nKategorie2: Logische Operatoren")
@@ -49,7 +59,7 @@ def game_wissen(points):
     kategorie2_3 = input("{:<5}         {:<25}            {:<1}".format("8", "False or not True", ":"))
     kategorie2_4 = input("{:<5}         {:<25}            {:<1}".format("9", "False and not False", ":"))
     kategorie2_5 = input("{:<5}         {:<25}            {:<1}".format("10", "not False or True", ":"))
-    if kategorie2_1.lower() == "t" or kategorie1_1.lower() == "true" or kategorie2_1.lower() == "1":
+    if kategorie2_1.lower() == "t" or kategorie2_1.lower() == "true" or kategorie2_1.lower() == "1":
         points += 1
     if kategorie2_2.lower() == "f" or kategorie2_2.lower() == "false" or kategorie2_2.lower() == "0":
         points += 1
@@ -67,7 +77,7 @@ def game_wissen(points):
     kategorie3_3 = input("{:<5}         {:<25}            {:<1}".format("13", "not 1 < 2 and not 1 < 3", ":"))
     kategorie3_4 = input("{:<5}         {:<25}            {:<1}".format("14", "2 < 1 and not 2 < 3", ":"))
     kategorie3_5 = input("{:<5}         {:<25}            {:<1}".format("15", "2 < 3 and 2 < 2", ":"))
-    if kategorie3_1.lower() == "t" or kategorie1_1.lower() == "true" or kategorie3_1.lower() == "1":
+    if kategorie3_1.lower() == "t" or kategorie3_1.lower() == "true" or kategorie3_1.lower() == "1":
         points += 1
     if kategorie3_2.lower() == "f" or kategorie3_2.lower() == "false" or kategorie3_2.lower() == "0":
         points += 1
