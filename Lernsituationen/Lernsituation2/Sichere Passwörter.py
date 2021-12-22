@@ -6,6 +6,7 @@ Zahlen
 Keine reinfolgen wie abc oder 123 ...
 keine Worte oder Jahre
 """
+import random
 
 
 class ColorCodes:
@@ -119,13 +120,12 @@ if answer != "y":
         elif security > 25:
             print("ist auch okay :)")
             quit("Programm beendet")
-    else:
-        print("\nPassword")
 
+alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/()|=?'<>,.;:-_#+*@€{[]}"
+password = ""
 
-        def random_number(n):
-            range_start = 10 ** (n - 1)
-            range_end = (10 ** n) - 1
-            return randint(range_start, range_end)
+for i in range(30):
+    password = password + alphabet[random.randrange(len(alphabet))]
 
-        random_number(9)
+print("\nPassword")
+print(password)

@@ -11,82 +11,134 @@ operator_functions = {
 
 def game_wissen(points):
 
-    operator = ("<", ">", "==", "<=", ">=", "!=", "and", "or",)
-    boolean = ("True", "False")
+    ops = ("<", ">", "==", "<=", ">=", "!=", "and", "or",)
+    boolean = (True, False, "not ", "")
+    counter = 1
 
     print("\nKategorie1: Logische Vergleiche")
     print("{:<5}         {:<25}            {:<7}".format("Frage", "Bedingung", "Antwort"))
 
-    counter = 0
-    while counter < 5:
-        number, op, number2 = r.randint(1, 3), operator[r.randint(0, 5)], r.randint(1, 3)
-        answer = input("{:<5}         {:<25}            {:<1}".format("1", f"{number} {op} {number2}", ":"))
+    while counter < 6:
+        number, number2, op = r.randint(1, 3), r.randint(1, 3), ops[r.randint(0, 5)]
+        answer = input("{:<5}         {:<25}            {:<1}".format(counter, f"{number} {op} {number2}", ":"))
         if answer.lower() == "t" or answer.lower() == "true" or answer == "1":
             answer = True
         elif answer.lower() == "f" or answer.lower() == "false" or answer == "0":
             answer = False
 
         if op == "<":
-            check_answer = number < number2
-            if check_answer == answer:
+            if (number < number2) == answer:
                 points += 1
         elif op == ">":
-            check_answer = number > number2
-            if check_answer == answer:
+            if (number > number2) == answer:
                 points += 1
         elif op == "==":
-            check_answer = number == number2
-            if check_answer == answer:
+            if (number == number2) == answer:
                 points += 1
         elif op == "<=":
-            check_answer = number <= number2
-            if check_answer == answer:
+            if (number <= number2) == answer:
                 points += 1
         elif op == ">=":
-            check_answer = number >= number2
-            if check_answer == answer:
+            if (number >= number2) == answer:
                 points += 1
         elif op == "!=":
-            check_answer = number != number2
-            if check_answer == answer:
+            if (number != number2) == answer:
                 points += 1
         counter += 1
 
     print("\nKategorie2: Logische Operatoren")
     print("{:<5}         {:<25}            {:<7}".format("Frage", "Bedingung", "Antwort"))
-    kategorie2_1 = input("{:<5}         {:<25}            {:<1}".format("6", "not False or not True", ":"))
-    kategorie2_2 = input("{:<5}         {:<25}            {:<1}".format("7", "True and not True", ":"))
-    kategorie2_3 = input("{:<5}         {:<25}            {:<1}".format("8", "False or not True", ":"))
-    kategorie2_4 = input("{:<5}         {:<25}            {:<1}".format("9", "False and not False", ":"))
-    kategorie2_5 = input("{:<5}         {:<25}            {:<1}".format("10", "not False or True", ":"))
-    if kategorie2_1.lower() == "t" or kategorie2_1.lower() == "true" or kategorie2_1.lower() == "1":
-        points += 1
-    if kategorie2_2.lower() == "f" or kategorie2_2.lower() == "false" or kategorie2_2.lower() == "0":
-        points += 1
-    if kategorie2_3.lower() == "f" or kategorie2_3.lower() == "false" or kategorie2_3.lower() == "0":
-        points += 1
-    if kategorie2_4.lower() == "f" or kategorie2_4.lower() == "false" or kategorie2_4.lower() == "0":
-        points += 1
-    if kategorie2_5.lower() == "t" or kategorie2_5.lower() == "true" or kategorie2_5.lower() == "1":
-        points += 1
+
+    while counter < 11:
+        n1, n2, op = boolean[r.randint(2, 3)], boolean[r.randint(2, 3)], ops[r.randint(6, 7)]
+        bool1, bool2 = boolean[r.randint(0, 1)], boolean[r.randint(0, 1)]
+        answer = input("{:<5}         {:<25}            {:<1}".format(counter, f"{n1}{bool1} {op} {n2}{bool2}", ":"))
+        if answer.lower() == "t" or answer.lower() == "true" or answer == "1":
+            answer = True
+        elif answer.lower() == "f" or answer.lower() == "false" or answer == "0":
+            answer = False
+
+        if n1 == "not ":
+            if bool1:
+                bool1 = False
+            else:
+                bool1 = True
+        if n2 == "not ":
+            if bool2:
+                bool2 = False
+            else:
+                bool2 = True
+
+        if op == "and":
+            if (bool1 and bool2) == answer:
+                points += 1
+        elif op == "or":
+            if (bool1 or bool2) == answer:
+                points += 1
+        counter += 1
 
     print("\nKategorie 3: Logische Operatoren und Vergleiche")
     print("{:<5}         {:<25}            {:<7}".format("Frage", "Bedingung", "Antwort"))
-    kategorie3_1 = input("{:<5}         {:<25}            {:<1}".format("11", "1 < 3 or 1 < 3", ":"))
-    kategorie3_2 = input("{:<5}         {:<25}            {:<1}".format("12", "3 < 1 and not 1 < 2", ":"))
-    kategorie3_3 = input("{:<5}         {:<25}            {:<1}".format("13", "not 1 < 2 and not 1 < 3", ":"))
-    kategorie3_4 = input("{:<5}         {:<25}            {:<1}".format("14", "2 < 1 and not 2 < 3", ":"))
-    kategorie3_5 = input("{:<5}         {:<25}            {:<1}".format("15", "2 < 3 and 2 < 2", ":"))
-    if kategorie3_1.lower() == "t" or kategorie3_1.lower() == "true" or kategorie3_1.lower() == "1":
-        points += 1
-    if kategorie3_2.lower() == "f" or kategorie3_2.lower() == "false" or kategorie3_2.lower() == "0":
-        points += 1
-    if kategorie3_3.lower() == "f" or kategorie3_3.lower() == "false" or kategorie3_3.lower() == "0":
-        points += 1
-    if kategorie3_4.lower() == "f" or kategorie3_4.lower() == "false" or kategorie3_4.lower() == "0":
-        points += 1
-    if kategorie3_5.lower() == "f" or kategorie3_5.lower() == "false" or kategorie3_5.lower() == "0":
-        points += 1
+
+    while counter < 16:
+        n1, n2, op = boolean[r.randint(2, 3)], boolean[r.randint(2, 3)], ops[r.randint(6, 7)]
+        number, op1, number2 = r.randint(1, 3), ops[r.randint(0, 5)], r.randint(1, 3)
+        number_1, op_1, number2_1 = r.randint(1, 3), ops[r.randint(0, 5)], r.randint(1, 3)
+        answer = input("{:<5}         {:<25}            {:<1}"
+                       .format(counter, f"{n1}{number} {op1} {number2} {op} {n2}{number_1} {op_1} {number2_1}", ":"))
+        if answer.lower() == "t" or answer.lower() == "true" or answer == "1":
+            answer = True
+        elif answer.lower() == "f" or answer.lower() == "false" or answer == "0":
+            answer = False
+
+        if op1 == "<":
+            bool1 = number_1 < number2_1
+        elif op1 == ">":
+            bool1 = number_1 > number2_1
+        elif op1 == "==":
+            bool1 = number_1 == number2_1
+        elif op1 == "<=":
+            bool1 = number_1 <= number2_1
+        elif op1 == ">=":
+            bool1 = number_1 >= number2_1
+        elif op1 == "!=":
+            bool1 = number_1 != number2_1
+        else:
+            bool1 = ""
+
+        if op_1 == "<":
+            bool2 = number_1 < number2_1
+        elif op_1 == ">":
+            bool2 = number_1 > number2_1
+        elif op_1 == "==":
+            bool2 = number_1 == number2_1
+        elif op_1 == "<=":
+            bool2 = number_1 <= number2_1
+        elif op_1 == ">=":
+            bool2 = number_1 >= number2_1
+        elif op_1 == "!=":
+            bool2 = number_1 != number2_1
+        else:
+            bool2 = ""
+
+        if n1 == "not ":
+            if bool1:
+                bool1 = False
+            else:
+                bool1 = True
+        if n2 == "not ":
+            if bool2:
+                bool2 = False
+            else:
+                bool2 = True
+
+        if op == "and":
+            if (bool1 and bool2) == answer:
+                points += 1
+        elif op == "or":
+            if (bool1 or bool2) == answer:
+                points += 1
+        counter += 1
 
     return points
 
@@ -105,23 +157,23 @@ while True:
     print("\nErgebnisse")
 
     print("\nRanking")
-    if punkte_user_1 > punkte_user_2 > punkte_user_3:
+    if punkte_user_1 >= punkte_user_2 >= punkte_user_3:
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
         print(f"{user_name2} hat {punkte_user_2} Punkte gesammelt")
         print(f"{user_name3} hat {punkte_user_3} Punkte gesammelt")
-    elif punkte_user_1 > punkte_user_3 > punkte_user_2:
+    elif punkte_user_1 >= punkte_user_3 >= punkte_user_2:
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
         print(f"{user_name3} hat {punkte_user_1} Punkte gesammelt")
         print(f"{user_name2} hat {punkte_user_2} Punkte gesammelt")
-    elif punkte_user_2 > punkte_user_1 > punkte_user_3:
+    elif punkte_user_2 >= punkte_user_1 >= punkte_user_3:
         print(f"{user_name2} hat {punkte_user_2} Punkte gesammelt")
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
         print(f"{user_name3} hat {punkte_user_3} Punkte gesammelt")
-    elif punkte_user_2 > punkte_user_3 > punkte_user_1:
+    elif punkte_user_2 >= punkte_user_3 >= punkte_user_1:
         print(f"{user_name2} hat {punkte_user_2} Punkte gesammelt")
         print(f"{user_name3} hat {punkte_user_3} Punkte gesammelt")
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
-    elif punkte_user_3 > punkte_user_1 > punkte_user_2:
+    elif punkte_user_3 >= punkte_user_1 >= punkte_user_2:
         print(f"{user_name3} hat {punkte_user_3} Punkte gesammelt")
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
         print(f"{user_name2} hat {punkte_user_2} Punkte gesammelt")
@@ -130,6 +182,6 @@ while True:
         print(f"{user_name2} hat {punkte_user_2} Punkte gesammelt")
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
 
-    neue_runde = input("Neuer Durchgang? j oder n:")
-    if neue_runde == "n":
+    neue_runde = input("\nNeuer Durchgang? j oder n:")
+    if neue_runde == "n" or neue_runde == "":
         break
