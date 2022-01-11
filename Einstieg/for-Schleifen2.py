@@ -47,7 +47,7 @@ while True:
 
 
 print('''4. Dominosteine''')
-for x in range(7):
-    for stein in range(7):
-        print("({:1}/{:1})".format(stein, x), end=" ")
+for x in range(1, 7):
+    for y in range(0, 7):
+        print(f"({x}/{y})", end=" ")
     print("")
