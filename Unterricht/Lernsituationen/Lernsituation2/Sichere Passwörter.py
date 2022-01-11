@@ -23,7 +23,9 @@ letter_special = 0
 
 fail_count = 0
 
-passwoerter = ("123456", "123456789", "12345678", "passw0rd", "passw0rt", "password", "passwort", "1234567", "123123",
+# "set" damit nichts 2x überprüft wird
+# set toopel liste
+passwoerter = {"123456", "123456789", "12345678", "passw0rd", "passw0rt", "password", "passwort", "1234567", "123123",
                "1234567890", "111111", "abc123", "00000", "123", "abc", "000000123456", "123456789", "password",
                "adobe123", "12345678", "qwerty", "1234567", "111111", "photoshop", "123123", "1234567890", "000000",
                "abc123", "1234", "adobe1", "macromedia", "azerty", "iloveyou", "aaaaaa", "654321", "12345", "666666",
@@ -35,7 +37,7 @@ passwoerter = ("123456", "123456789", "12345678", "passw0rd", "passw0rt", "passw
                "jennifer", "jordan", "abcd1234", "trustno1", "buster", "555555", "liverpool", "abc", "whatever",
                "11111111", "102030", "123123123", "andrea", "pepper", "nicole", "killer", "abcdef", "hannah", "test",
                "alexander", "andrew", "222222", "joshua", "freedom", "samsung", "asdfghj", "purple", "ginger", "123654",
-               "matrix", "secret", "summer", "1q2w3e", "snoopy1")
+               "matrix", "secret", "summer", "1q2w3e", "snoopy1"}
 
 while True:
     password = input("passwort:")

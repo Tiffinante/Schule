@@ -1,4 +1,5 @@
-import os, time
+import os
+import time
 
 '''
 Wenn eine Datei in einen ordner reingelegt wird,
@@ -11,6 +12,7 @@ path = input('Path:')
 old = input("name to rename")
 
 while True:
+    old = input("name to rename")
     os.chdir(path)
     len_ordner = len(os.listdir('.'))
     if safe_len == 0:
