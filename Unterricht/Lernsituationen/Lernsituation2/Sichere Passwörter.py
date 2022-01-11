@@ -1,11 +1,3 @@
-"""
-mehr als 10 zeichen
-Groß klein buchstaben
-Sonderzeichen
-Zahlen
-Keine reinfolgen wie abc oder 123 ...
-keine Worte oder Jahre
-"""
 import random
 
 
@@ -60,8 +52,6 @@ for letter in password:
         letter_special += 1
 
 password_len = len(password)
-"""print(f"letter_lower {letter_lower} | letter_upper {letter_upper} | letter_digit {letter_digit} | letter_special {letter_special}")
-print(f"password_len {password_len}")"""
 
 for i in passwoerter:
     if i in password or i == password:
