@@ -1,8 +1,4 @@
-class ColorCodes:
-    GREEN = '\033[92m'  # GREEN
-    YELLOW = '\033[93m'  # YELLOW
-    RED = '\033[91m'  # RED
-    WHITE = '\033[0m'  # WHITE
+from  mylibrary import ColorCodes
 
 print('''\nAufgabe 1:
 

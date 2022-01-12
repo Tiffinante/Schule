@@ -1,6 +1,8 @@
 import random
+from mylibrary import ColorCodes
 
-
+# Code from mylibrary -> ColorCodes
+'''
 class ColorCodes:
     PINK = '\033[95m'
     BLUE = '\033[94m'
@@ -11,6 +13,7 @@ class ColorCodes:
     RESET = '\033[0m'  # WHITE
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+'''
 
 
 letter_upper = 0
