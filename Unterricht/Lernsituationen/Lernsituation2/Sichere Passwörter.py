@@ -110,7 +110,7 @@ elif fail_count == 0:
 
 print('-' * 45)
 
-alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/()|=?'<>,.;:-_#+*@€{[]}"
+alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!§$%&/\\()|=?'<>,.;:-_#+*@€{[]}"
 password = ""
 for i in range(30):
     password = password + alphabet[random.randrange(len(alphabet))]
