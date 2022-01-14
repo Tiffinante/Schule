@@ -28,3 +28,8 @@ Bananen
 Kirschen
 Mangos
 Ananas
+Apfel
+Bananen
+Kirschen
+Mangos
+Ananas

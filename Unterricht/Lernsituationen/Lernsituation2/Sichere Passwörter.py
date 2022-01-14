@@ -39,10 +39,12 @@ passwoerter = {"123456", "123456789", "12345678", "passw0rd", "passw0rt", "passw
                "summer", "1q2w3e", "snoopy1"}
 
 while True:
-    password = input("\nIhr Passwort:")
+    password = input("Ihr Passwort:")
     if password.lower() == "penis":
         print(ColorCodes.RED + "ACHTUNG! Ihr Passwort ist zu kurts!" + ColorCodes.RESET)
-    elif not (" " in password) and password.isprintable():
+    elif password == "":
+        print("Bitte geben sie ein Password ein")
+    elif not(" " in password) and password.isprintable():
         print("")
         break
     else:
