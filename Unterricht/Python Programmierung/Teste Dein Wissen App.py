@@ -154,8 +154,6 @@ while True:
     punkte = 0
     punkte_user_3 = game_wissen(punkte)
 
-    print("\nErgebnisse")
-
     print("\nRanking")
     if punkte_user_1 >= punkte_user_2 >= punkte_user_3:
         print(f"{user_name1} hat {punkte_user_1} Punkte gesammelt")
