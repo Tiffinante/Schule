@@ -1,5 +1,5 @@
 import random
-'''# Aufgabe 1
+# Aufgabe 1
 mylist = [1, 1, 23, 6, 848, 37, 57, 4, 6, 334, 34, 34, 45, 44, 123, 879, 545, 9]
 mylisttotal = []
 c = 0
@@ -43,7 +43,7 @@ Summe = {summeG}
 Ungerade Zahlen:
 Anzahl = {len(mylistungrade)}
 Summe = {summeU}
-""")'''
+""")
 
 # Aufgabe 2
 eingabe = [1, 5, 4, 5, 7, 6, 8, 6, 5, 4, 5, 4]
@@ -60,14 +60,9 @@ for i in range(len(eingabe)):
 print(geglaettet)
 
 # Aufgabe 3
-mylist = []
-for i in range(1, 10):
-    mylist.append(random.randrange(1, 1000))
-print(mylist)
-mylist.sort()
-print(mylist)
-
-for i in range(1, 10):
-    mylist.append(random.randrange(1, 1000))
-print(mylist)
-while True:
+my_list = [19, 13, 6, 2, 18, 8]
+for i in range(len(my_list)):
+    for i2 in range(len(my_list) - 1):
+        if my_list[i2 + 1] < my_list[i2]:
+            my_list[i2], my_list[i2+1] = my_list[i2+1], my_list[i2]
+print(my_list)
