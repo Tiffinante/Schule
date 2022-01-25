@@ -4,7 +4,7 @@ import shutil
 from mylibrary import ColorCodes
 
 # \ -> \\
-path = "C:\\Users\\katta\\Desktop\\All\\python datei zum lesen.txt"
+path = "H:\\Neues Textdokument.txt"
 print(path)
 print("")
 
@@ -45,6 +45,7 @@ else:
 # shutil.copy2('file append or write.txt', 'C:\\Users\\katta\\Desktop\\file append or write.txt' )
 
 # Datein verschieben
+'''
 scr = 'C:\\Users\\katta\\Desktop\\All\\Memes'# source
 dst = 'C:\\Users\\katta\\Desktop\\Memes'# destination
 
@@ -73,3 +74,4 @@ except FileNotFoundError:
     print("file not found")
 except PermissionError:
     print("You do not have permissions to delete that!")
+'''

@@ -1,5 +1,5 @@
 
-# Verschiedene Farb Codes
+# Different Color Codes
 class ColorCodes:
     PINK = '\033[95m'
     BLUE = '\033[94m'
