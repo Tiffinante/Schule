@@ -39,7 +39,7 @@ for color in range(1, 4+1):
 print(len(cards))
 print(cards)
 # random.shuffle(cards)
-"""counter = 0
+counter = 0
 while counter != 10:
     counter += 1
     while True:
@@ -59,10 +59,10 @@ while counter != 10:
         cards[first], cards[second] = cards[second], cards[first]
         print(f"({counter} / 10)\n")
     print(cards)
-"""
+
 for i in range(100):
-    zufallszahl = random.randint(1, 32)
-    zufallszahl2 = random.randint(1, 32)
+    zufallszahl = random.randint(0, 31)
+    zufallszahl2 = random.randint(0, 31)
     cards[zufallszahl], cards[zufallszahl2] = cards[zufallszahl2], cards[zufallszahl]
 
-print(cards)
+print("\n", cards)
