@@ -60,9 +60,10 @@ while counter != 10:
         print(f"({counter} / 10)\n")
     print(cards)
 
+print("\nAutomatisch mischen\n")
 for i in range(100):
     zufallszahl = random.randint(0, 31)
     zufallszahl2 = random.randint(0, 31)
     cards[zufallszahl], cards[zufallszahl2] = cards[zufallszahl2], cards[zufallszahl]
 
-print("\n", cards)
+print(cards)
