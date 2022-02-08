@@ -1,11 +1,8 @@
 import random
 import math
 
-import numpy
-
 len_of_tuple = 20
 temp = []
-
 for i in range(len_of_tuple):
     temp.append(random.randint(0, 100))
 
@@ -17,6 +14,7 @@ print(type(my_tuple))
 # sort tuple
 my_tuple_sort = tuple(sorted(my_tuple))
 print(my_tuple_sort)
+
 
 # stats
 print("\nMittelwert:")
