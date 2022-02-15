@@ -5,8 +5,8 @@ invoice = [
     (1, "47923243", "WLAN Access Point", 123.21)
 ]
 
-
-print("{:<5}{:<10}{:<15}{:<28}{:>20}{:>20}".format("Pos.", "Anzahl", "Art.-Nr.", "Beschreibung", "Einzelpreis", "Gesamtpreis"))
+print("{:<5}{:<10}{:<15}{:<28}{:>20}{:>20}".format("Pos.", "Anzahl", "Art.-Nr.", "Beschreibung", "Einzelpreis",
+                                                   "Gesamtpreis"))
 for i in range(len(invoice)):
     a = invoice[i][0]
     b = invoice[i][1]
