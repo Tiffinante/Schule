@@ -1,7 +1,5 @@
-import os
-
-
 verlauf = ""
+
 
 def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
     verlauf = ""
@@ -31,8 +29,8 @@ def calendar_build(mon, tue, wed, thr, fri, sat, sun, month_len):
         # Insert column of calendar (German = Spalte des Kalenders einsetzen)
         str_mon, str_tue, str_wed, str_thr, str_fri, str_sat, str_sun = \
             str(mon), str(tue), str(wed), str(thr), str(fri), str(sat), str(sun)
-        txt = "{:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2} ".format(str_mon,str_tue, str_wed, str_thr,str_fri,
-                                                                         str_sat, str_sun)
+        txt = "{:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2} ".format(str_mon, str_tue, str_wed, str_thr, str_fri,
+                                                                        str_sat, str_sun)
         verlauf += txt + "\n"
         print(txt)
         # calculate the data in the next line
@@ -103,7 +101,6 @@ txt = "{:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2}  {:>2} ".format("Mo", "Di", "Mi"
 verlauf += txt + "\n"
 print(txt)
 
-
 # check for 30, 31 days or February
 if month == 2:
     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
@@ -116,4 +113,4 @@ else:
     verlauf += calendar_build(Mon, Tue, Wed, Thr, Fri, Sat, Sun, 30)
 
 with open('Datei-Kalender-datei-verlauf', 'a') as file:
-        file.write(verlauf)
+    file.write(verlauf)
