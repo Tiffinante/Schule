@@ -5,11 +5,8 @@ invoice = [
     (1, "47923243", "WLAN Access Point", 123.21)
 ]
 
-print("{:<5}{:<10}{:<15}{:<28}{:>20}{:>20}".format("Pos.", "Anzahl", "Art.-Nr.", "Beschreibung", "Einzelpreis",
+print("{:<5}{:<10}{:<15}{:<28}{:<10}{:>10}".format("Pos.", "Anzahl", "Art.-Nr.", "Beschreibung", "Einzelpreis",
                                                    "Gesamtpreis"))
 for i in range(len(invoice)):
-    a = invoice[i][0]
-    b = invoice[i][1]
-    c = invoice[i][2]
-    d = invoice[i][3]
-    print("{:<5}{:<10}{:<15}{:<28}{:>20}{:>20}".format(i+1, a, b, c, d, d*a))
+    print("{:<5d}{:<10d}{:<15}{:<28}{:<10.2f}{:>10.2f}".format(i + 1, invoice[i][0], invoice[i][1], invoice[i][2],
+                                                               invoice[i][3], invoice[i][3] * invoice[i][0]))
