@@ -4,7 +4,7 @@ alpha = "abcdefghijklmnopqrstuvwxyz".upper()
 while True:
     while True:
         print("\nSoll Ver- oder Entschlüsselt werden?\n1 Für Verschlüsseln 2 Für Entschlüsseln")
-        eingabe = input("1 oder 2 :") # 1 = Verschlüsseln 2 = Entschlüssln
+        eingabe = input("1 oder 2 :")
         if not eingabe:
             quit()
 
@@ -20,20 +20,23 @@ while True:
                     print("Es wird Entschlüsselt")
                     break
 
-    while True: # Code Eingeben
-        if not eingabe:
+    while True:
+        code = input("Code:")
+        if not code:
             quit()
 
-        code = input("Code:")
         if code.isalpha():
             if code.isupper():
-                break
+                if 'Ä' in code or 'Ö' in code or 'Ü' in code:
+                    print(code)
+                else:
+                    break
 
-    while True: # Um wie viele stellen das Verschoben werden
-        if not eingabe:
+    while True:
+        verschiebung = input("Um wie viele Stehlen soll Verschoben?\n:")
+        if not verschiebung:
             quit()
 
-        verschiebung = input("Um wie viele Stehlen soll Verschoben?\n:")
         if verschiebung.isdecimal():
             verschiebung = int(verschiebung)
             if 1 < verschiebung < 26:
@@ -41,13 +44,13 @@ while True:
 
     print()
 
-    if verschleusseln: # Verschlüsseln
+    if verschleusseln:
         for element in code:
             if alpha.index(element) + verschiebung >= 26:
                 print(alpha[(alpha.index(element) + verschiebung) - 26], end="")
             else:
                 print(alpha[alpha.index(element) + verschiebung], end="")
-    else: # Entschlüsseln
+    else:
         for element in code:
             print(alpha[alpha.index(element) - verschiebung], end="")
 
