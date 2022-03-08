@@ -64,7 +64,13 @@ def read_int_above_lower_limit(upper_limit: int, question: str) -> int:
 def read_int_below_upper_limit(lower_limit: int,question: str) -> int:
     """
     Input Funktion die nur ganzezahlen erlaubt, die kleiner/gleich als upper_limit sind
-    :param lower_limit:
+    :param lower_limit: Maximum
     :param question: Text für den input
     :return:
     """
+    while True:
+        answer = input(question)
+        if answer.isdecimal():
+            answer = int(answer)
+            if answer <= lower_limit:
+                return answer
