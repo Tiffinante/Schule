@@ -25,24 +25,32 @@ while True:
         print(ColorCodes.PINK + "System" + ColorCodes.RESET + ": " + ColorCodes.RED + "Sie können mit '!help' die " +
               "Benutzeranleitung aufsuchen oder weiter mit dem Bot schreiben" + ColorCodes.RESET)
     if User_question:
+        answer = False
+
         # Befehle erkennen
         if check_question(User_question):
             continue
+
         # Satz in wörter zerlegen
         User_words = User_question.split()
+
         # Antworten
         if "bye" in User_words:
             print(bot_name + ":", f"Ich ünsche dir noch einen Schönen Tag {User_name}.")
             print(ColorCodes.PINK + "System" + ColorCodes.RESET + ": " + ColorCodes.RED + "Bot beendet...")
             quit()
 
-        for e in User_words:
-            if e in tags:
-                txt = tags.get(e)
+        for element in User_words:
+            if element in tags:
+                answer = True
+                txt = tags.get(element)
                 print(bot_name + ":", txt)
                 break
 
-    # Random Antwort
-    else:
-        txt = r.choice(random_answers)
-        print(bot_name + ":", txt)
+        if not answer:
+            pass
+
+        # Random Antwort
+        if not answer:
+            txt = r.choice(random_answers)
+            print(bot_name + ":", txt)
