@@ -1,5 +1,5 @@
 from FUNCTIONS import *
-
+import time
 
 print()
 while True:

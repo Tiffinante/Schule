@@ -23,12 +23,12 @@ random_answers = [
     "Auf Was für einer Platform Spielst du?",
     f"Kennst du {r.choice(games)}?",
     "Schön.",
+    "Sultan Kösen ist der Größte mensch der welt mit ganzen 2,51m",
 ]
 
 tags = {
     # Komunikation
     "hallo": "Hi.",
-    "größte": "Sultan Kösen ist der Größte mensch der welt mit ganzen 2,51m",
 
     # Allgemainwissen
     "fortnite": "NEIN!",
@@ -42,6 +42,7 @@ tags = {
                 "Computerspieleentwickler, Synchronsprecher, Musiker, Livestreamer und Unternehmer. Bekannt wurde "
                 "Gronkh durch sogenannte Let’s-Play-Videos auf der Internetplattform YouTube. In diesen spielt und "
                 "kommentiert er Computer- und Videospiele.",
+    # Games
     "minecraft": "Minecraft ist ein Sandbox-Computerspiel, das ursprünglich vom schwedischen Programmierer Markus "
                  "„Notch“ Persson und seinem dazu gegründeten Unternehmen Mojang entwickelt wurde. Mojang samt Spiel "
                  "gehört seit September 2014 zu Microsoft. Minecraft erschien erstmals am 17. Mai 2009 als "
