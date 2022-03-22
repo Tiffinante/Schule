@@ -119,16 +119,3 @@ def choose_option(options: list, question: str):
                 return answer
             finally:
                 pass
-
-
-# read_string("read_string")
-# read_upper_case_string("read_upper_case_string")
-# read_lower_case_string("read_lower_case_string")
-# read_int("read_int")
-# read_int_above_lower_limit(10, "read_int_above_lower_limit")
-# read_int_below_upper_limit(10, "read_int_below_upper_limit")
-# read_int_in_limits(10, 20, "read_int_in_limits")
-x = [2, True, "3", 4.7]
-y = choose_option(x, "choose_option")
-print(y)
-print(type(y))
