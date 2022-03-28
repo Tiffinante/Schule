@@ -1,7 +1,3 @@
-# Different Color Codes
-import doctest
-
-
 class ColorCodes:
     PINK = '\033[95m'
     BLUE = '\033[94m'
@@ -16,11 +12,9 @@ class ColorCodes:
 
 def is_prime(n: int) -> bool:
     """
-    >>> is_prime(7)
-    True
-    Checks if a number is prime or not and returns True or False
-    :param n: n is the number to check
-    :return: True or False
+    Checks if a number is prime or not and returns True or False.
+    :param n: is the number to check.
+    :return: True if it is a prime number ans False if it is not a prime number.
     """
     if n == 2 or n == 3:
         return True
@@ -32,5 +26,13 @@ def is_prime(n: int) -> bool:
     return True
 
 
-if __name__ == "__main__":
-    doctest.testmod()
+def input_integer(question: str) -> int:
+    """
+    Input function that only accepts integers.
+    :param question: Text for the input.
+    :return: User Input as integer.
+    """
+    while True:
+        n = input(question)
+        if n.isdecimal():
+            return int(n)
